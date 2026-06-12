@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narciso Ferreira</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            background:
+                radial-gradient(circle at top, #1b4332 0%, #081c15 60%);
+        }
+
+        .glass {
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .link-btn {
+            transition: all .3s ease;
+        }
+
+        .link-btn:hover {
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center px-4 py-10">
+
+    <div class="glass bg-white/10 border border-white/10 shadow-2xl rounded-3xl p-8 w-full max-w-md text-center">
+
+        <!-- FOTO -->
+        <img src="./image.png" alt="Narciso Ferreira"
+            class="w-36 h-36 mx-auto rounded-full object-cover border-4 border-emerald-400 shadow-xl">
+
+        <!-- NOME -->
+        <h1 class="mt-5 text-3xl font-bold text-white">
+            Narciso Ferreira
+        </h1>
+
+        <p class="mt-2 text-emerald-200">
+            Pesquisador • Professor
+        </p>
+
+        <!-- LINKS -->
+        <div class="mt-8 space-y-4">
+
+            <a href="http://lattes.cnpq.br/5703335372799074" target="_blank"
+                class="link-btn flex items-center w-full px-5 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow-lg">
+
+                <div class="w-8 flex justify-center">
+                    <i data-lucide="file-badge"></i>
+                </div>
+
+                <span class="flex-1 text-center">
+                    Currículo Lattes
+                </span>
+
+                <div class="w-8"></div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/narciso-ferreira-0b971a109/" target="_blank"
+                class="link-btn flex items-center w-full px-5 py-4 rounded-2xl bg-emerald-700 hover:bg-emerald-600/80 text-white font-semibold shadow-lg">
+
+                <div class="w-8 flex justify-center">
+                    <i data-lucide="briefcase-business"></i>
+                </div>
+
+                <span class="flex-1 text-center">
+                    LinkedIn
+                </span>
+
+                <div class="w-8"></div>
+            </a>
+
+            <a href="https://api.whatsapp.com/send/?phone=553891537708" target="_blank"
+                class="link-btn flex items-center w-full px-5 py-4 rounded-2xl bg-green-600 hover:bg-green-500 text-white font-semibold shadow-lg">
+
+                <div class="w-8 flex justify-center">
+                    <i data-lucide="message-circle"></i>
+                </div>
+
+                <span class="flex-1 text-center">
+                    WhatsApp
+                </span>
+
+                <div class="w-8"></div>
+            </a>
+
+            <a href="https://www.instagram.com/narcisofsn/" target="_blank"
+                class="link-btn flex items-center w-full px-5 py-4 rounded-2xl bg-teal-700 hover:bg-teal-600 text-white font-semibold shadow-lg">
+
+                <div class="w-8 flex justify-center">
+                    <i data-lucide="camera"></i>
+                </div>
+
+                <span class="flex-1 text-center">
+                    Instagram
+                </span>
+
+                <div class="w-8"></div>
+            </a>
+
+        </div>
+
+        <!-- PROJETOS -->
+        <div class="mt-8">
+
+            <div class="cursor-pointer flex items-center justify-center gap-2 mb-4 border border-emerald-300 py-4 rounded-xl hover:scale-105 transition"
+                onclick="toggleProjetos()">
+                <i data-lucide="folder-kanban" class="text-emerald-300"></i>
+                <h2 class="text-lg font-semibold text-white">
+                    Projetos
+                </h2>
+            </div>
+
+            <div id="projetos" class="hidden mt-4 grid grid-cols-2 gap-3">
+
+                <a href="https://otmg.org/" target="_blank"
+                    class="bg-white text-emerald-900 font-semibold py-4 rounded-xl hover:scale-105 transition">
+                    OTMG
+                </a>
+
+                <a href="#" target="_blank"
+                    class="bg-white text-emerald-900 font-semibold py-4 rounded-xl hover:scale-105 transition">
+                    NuMob
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="mt-8 text-sm text-emerald-200">
+            © 2026 Narciso Ferreira
+        </footer>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+        function toggleProjetos() {
+            const projetos = document.getElementById('projetos');
+            projetos.classList.toggle('hidden');
+        }
+    </script>
+
+</body>
+
+</html>
