@@ -11,8 +11,7 @@
 
     <style>
         body {
-            background:
-                radial-gradient(circle at top, #1b4332 0%, #081c15 60%);
+            background: radial-gradient(circle at top, #1b4332 0%, #081c15 60%);
         }
 
         .glass {
@@ -26,6 +25,14 @@
 
         .link-btn:hover {
             transform: translateY(-3px);
+        }
+
+        .flag-btn {
+            transition: all .3s ease;
+        }
+
+        .flag-btn:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -43,13 +50,35 @@
             Narciso Ferreira
         </h1>
 
-        <p class="mt-2 text-emerald-200">
+        <!-- SUBTÍTULO -->
+        <p id="subtitle" class="mt-2 text-emerald-200">
             Pesquisador • Professor
         </p>
+
+        <!-- IDIOMAS -->
+        <div class="flex justify-center gap-3 mt-5">
+
+            <button onclick="changeLanguage('pt')"
+                class="flag-btn overflow-hidden rounded-lg border border-white/20">
+                <img src="https://flagcdn.com/w40/br.png" alt="Português" class="w-10 h-7 object-cover">
+            </button>
+
+            <button onclick="changeLanguage('en')"
+                class="flag-btn overflow-hidden rounded-lg border border-white/20">
+                <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-10 h-7 object-cover">
+            </button>
+
+            <button onclick="changeLanguage('es')"
+                class="flag-btn overflow-hidden rounded-lg border border-white/20">
+                <img src="https://flagcdn.com/w40/es.png" alt="Español" class="w-10 h-7 object-cover">
+            </button>
+
+        </div>
 
         <!-- LINKS -->
         <div class="mt-8 space-y-4">
 
+            <!-- LATTES -->
             <a href="http://lattes.cnpq.br/5703335372799074" target="_blank"
                 class="link-btn flex items-center w-full px-5 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow-lg">
 
@@ -57,13 +86,14 @@
                     <i data-lucide="file-badge"></i>
                 </div>
 
-                <span class="flex-1 text-center">
+                <span id="lattesText" class="flex-1 text-center">
                     Currículo Lattes
                 </span>
 
                 <div class="w-8"></div>
             </a>
 
+            <!-- LINKEDIN -->
             <a href="https://www.linkedin.com/in/narciso-ferreira-0b971a109/" target="_blank"
                 class="link-btn flex items-center w-full px-5 py-4 rounded-2xl bg-emerald-700 hover:bg-emerald-600/80 text-white font-semibold shadow-lg">
 
@@ -71,13 +101,14 @@
                     <i data-lucide="briefcase-business"></i>
                 </div>
 
-                <span class="flex-1 text-center">
+                <span id="linkedinText" class="flex-1 text-center">
                     LinkedIn
                 </span>
 
                 <div class="w-8"></div>
             </a>
 
+            <!-- WHATSAPP -->
             <a href="https://api.whatsapp.com/send/?phone=553891537708" target="_blank"
                 class="link-btn flex items-center w-full px-5 py-4 rounded-2xl bg-green-600 hover:bg-green-500 text-white font-semibold shadow-lg">
 
@@ -85,13 +116,14 @@
                     <i data-lucide="message-circle"></i>
                 </div>
 
-                <span class="flex-1 text-center">
+                <span id="whatsappText" class="flex-1 text-center">
                     WhatsApp
                 </span>
 
                 <div class="w-8"></div>
             </a>
 
+            <!-- INSTAGRAM -->
             <a href="https://www.instagram.com/narcisofsn/" target="_blank"
                 class="link-btn flex items-center w-full px-5 py-4 rounded-2xl bg-teal-700 hover:bg-teal-600 text-white font-semibold shadow-lg">
 
@@ -99,7 +131,7 @@
                     <i data-lucide="camera"></i>
                 </div>
 
-                <span class="flex-1 text-center">
+                <span id="instagramText" class="flex-1 text-center">
                     Instagram
                 </span>
 
@@ -111,12 +143,15 @@
         <!-- PROJETOS -->
         <div class="mt-8">
 
-            <div class="cursor-pointer flex items-center justify-center gap-2 mb-4 border border-emerald-300 py-4 rounded-xl hover:scale-105 transition"
-                onclick="toggleProjetos()">
+            <div onclick="toggleProjetos()"
+                class="cursor-pointer flex items-center justify-center gap-2 mb-4 border border-emerald-300 py-4 rounded-xl hover:scale-105 transition">
+
                 <i data-lucide="folder-kanban" class="text-emerald-300"></i>
-                <h2 class="text-lg font-semibold text-white">
+
+                <h2 id="projectsTitle" class="text-lg font-semibold text-white">
                     Projetos
                 </h2>
+
             </div>
 
             <div id="projetos" class="hidden mt-4 grid grid-cols-2 gap-3">
@@ -143,11 +178,62 @@
     </div>
 
     <script>
-        lucide.createIcons();
-        function toggleProjetos() {
-            const projetos = document.getElementById('projetos');
-            projetos.classList.toggle('hidden');
+        const translations = {
+            pt: {
+                subtitle: "Pesquisador • Professor",
+                lattes: "Currículo Lattes",
+                linkedin: "LinkedIn",
+                whatsapp: "WhatsApp",
+                instagram: "Instagram",
+                projects: "Projetos"
+            },
+
+            en: {
+                subtitle: "Researcher • Professor",
+                lattes: "Lattes CV",
+                linkedin: "LinkedIn",
+                whatsapp: "WhatsApp",
+                instagram: "Instagram",
+                projects: "Projects"
+            },
+
+            es: {
+                subtitle: "Investigador • Profesor",
+                lattes: "Currículum Lattes",
+                linkedin: "LinkedIn",
+                whatsapp: "WhatsApp",
+                instagram: "Instagram",
+                projects: "Proyectos"
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+
+            document.getElementById("subtitle").textContent =
+                translations[lang].subtitle;
+
+            document.getElementById("lattesText").textContent =
+                translations[lang].lattes;
+
+            document.getElementById("linkedinText").textContent =
+                translations[lang].linkedin;
+
+            document.getElementById("whatsappText").textContent =
+                translations[lang].whatsapp;
+
+            document.getElementById("instagramText").textContent =
+                translations[lang].instagram;
+
+            document.getElementById("projectsTitle").textContent =
+                translations[lang].projects;
         }
+
+        function toggleProjetos() {
+            document.getElementById("projetos").classList.toggle("hidden");
+        }
+
+        lucide.createIcons();
     </script>
 
 </body>
