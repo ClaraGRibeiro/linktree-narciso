@@ -58,18 +58,15 @@
         <!-- IDIOMAS -->
         <div class="flex justify-center gap-3 mt-5">
 
-            <button onclick="changeLanguage('pt')"
-                class="flag-btn overflow-hidden rounded-lg border border-white/20">
+            <button onclick="changeLanguage('pt')" class="flag-btn overflow-hidden rounded-lg border border-white/20">
                 <img src="https://flagcdn.com/w40/br.png" alt="Português" class="w-10 h-7 object-cover">
             </button>
 
-            <button onclick="changeLanguage('en')"
-                class="flag-btn overflow-hidden rounded-lg border border-white/20">
+            <button onclick="changeLanguage('en')" class="flag-btn overflow-hidden rounded-lg border border-white/20">
                 <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-10 h-7 object-cover">
             </button>
 
-            <button onclick="changeLanguage('es')"
-                class="flag-btn overflow-hidden rounded-lg border border-white/20">
+            <button onclick="changeLanguage('es')" class="flag-btn overflow-hidden rounded-lg border border-white/20">
                 <img src="https://flagcdn.com/w40/es.png" alt="Español" class="w-10 h-7 object-cover">
             </button>
 
@@ -172,12 +169,13 @@
 
         <!-- FOOTER -->
         <footer class="mt-8 text-sm text-emerald-200">
-            © 2026 Narciso Ferreira
+            © <span id="year"></span> OTMG
         </footer>
 
     </div>
 
     <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
         const translations = {
             pt: {
                 subtitle: "Pesquisador • Professor",
